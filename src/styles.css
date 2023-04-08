@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --border: #b82601;
+
+    --image: #89513c;
+    
+    --g1: #852cd2;
+    --g2: #062F4F ;
+    --g3: #000000;
+
+    --primary: #852cd2;
+    --secondary: #d7a300;
+    --background: #35353a;
+    /* --background: white; */
+  }
+
+html, body { height: 100%; background-color: var(--background);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* LOAD ELEMENTS IN FROM TOP TO BOTTOM */
+.load1 {
+    transform: translateY(-100%);
+    animation-duration: 550ms;
+    animation-fill-mode: forwards; /* keeps anim change */   
+}
+
+.load2, .load3, .load4 {
+    transform: scale(0);
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.load1 {
+    animation-name: slide-in-top;
+    animation-delay: 0;
+}
+
+.load2 {
+    animation-name: pop-in;
+    animation-delay: 250ms;
+}
+
+.load3 {
+    animation-name: pop-in;
+    animation-delay: 500ms;
+}
+
+.load4 {
+    animation-name: pop-in;
+    animation-delay: 750ms;
+}
+
+@keyframes slide-in-top {
+    from {
+        transform: translateY(-100%);
+    } to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop-in {
+    from {
+        transform: scale(0);
+    } to {
+        transform:  scale(1);
+    }
+}
+
+/* HEADER  */
+
+
+/* GRADIENT CARD  */
+.card {
+    border: 0.25vmin solid var(--primary);
+    position: relative;
+    border-radius: 1rem;
+}
+
+.card:hover:before {
+    background-position: 100% 100%;
+    transform: scale(1.01, 1.02);
+}
+
+.card:hover > .card-content {
+    background-position: -10% 0%;
+}
+
+.card:before {
+    background: linear-gradient(
+    130deg, 
+    transparent 0% 33%, 
+    var(--g1) 66%, 
+    var(--g2) 83.5%, 
+    var(--g3) 100%
+  );
+    border-radius: 1rem;
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    content: "";
+    height: 100%;
+    left: 0px;
+    pointer-events: none;
+    position: absolute;
+    top: 0px;
+    transition: background-position 550ms ease, transform 550ms ease;
+    width: 100%;
+    z-index: 1;
+}
+
+.card-content {
+    background: radial-gradient( rgba(138, 125, 125, 0.45) 8%, transparent 8%);
+    background-position: 0% 0%;
+    background-size: 5vmin 5vmin;
+    height: 100%;    
+    width: 100%;
+    padding: 5vmin;
+    position: relative;
+    transition: background-position 550ms ease;
+
+    z-index: 2;
+}
+
