@@ -13,8 +13,8 @@
 
     --primary: #852cd2;
     --secondary: #d7a300;
-    --background: #35353a;
-    /* --background: white; */
+    /* --background: #35353a; */
+    --background: white;
   }
 
 html, body { height: 100%; background-color: var(--background);}

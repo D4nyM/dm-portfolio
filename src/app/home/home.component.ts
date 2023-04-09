@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @Component({
   selector: 'app-home',
@@ -7,5 +7,4 @@ import {MatGridListModule} from '@angular/material/grid-list';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
 }
