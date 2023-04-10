@@ -1,53 +1,51 @@
-<mat-toolbar class="bg-transparent load1">
-  <div class="flex justify-between w-full mx-auto 2xl:w-4/5">
-    <div class="flex">
-      <div class="bg-[var(--primary)] h-8 w-8 rounded-full"></div>
-      <p mat-button [routerLink]="'/home'" class="ml-4 text-3xl font-bold">
-        Daniel
-      </p>
-    </div>
-    <div class="invisible md:visible">
-      <a
-        href="/home"
-        class="px-2 py-2 font-normal hover:text-[var(--primary)] transition duration-550 hover:bg-[#41404028] rounded-2xl"
-        >Home</a
-      >
-      <a
-        href="/projects"
-        class="px-2 py-2 font-normal hover:text-[var(--primary)] transition duration-550 hover:bg-[#41404028] rounded-2xl"
-        >Projects</a
-      >
-      <a
-        href="/contact"
-        class="py-2 px-2 font-normal hover:text-[var(--primary)] transition duration-550 hover:bg-[#41404028] rounded-2xl"
-        >Contact Me</a
-      >
-    </div>
-    <!-- Mobile Hamburger Menu Icon -->
-    <div class="flex items-center md:hidden">
-      <button class="outline-none mobile-menu-button">
-        <svg
-          class="w-6 h-6 text-grey-500"
-          x-show="!showMenu"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div class="hidden mobile-menu">
-      <ul class="">
-        <li class="active"><a></a></li>
-        <li><a>Home</a></li>
-        <li><a>Projects</a></li>
-        <li><a>Contact Me</a></li>
-      </ul>
-    </div>
+<div class="flex items-center justify-between w-full h-12 mx-auto 2xl:w-4/5">
+  <div class="flex">
+    <div class="bg-[var(--primary)] h-8 w-8 rounded-full"></div>
+    <p mat-button [routerLink]="'/home'" class="ml-4 text-3xl font-bold">
+      Daniel
+    </p>
   </div>
-</mat-toolbar>
+  <div class="invisible md:visible">
+    <a
+      href="/home"
+      class="px-2 py-2 font-normal hover:text-[var(--primary)] transition duration-550 hover:bg-[#41404028] rounded-2xl"
+      >Home</a
+    >
+    <a
+      href="/projects"
+      class="px-2 py-2 font-normal hover:text-[var(--primary)] transition duration-550 hover:bg-[#41404028] rounded-2xl"
+      >Projects</a
+    >
+    <a
+      href="/contact"
+      class="py-2 px-2 font-normal hover:text-[var(--primary)] transition duration-550 hover:bg-[#41404028] rounded-2xl"
+      >Contact Me</a
+    >
+  </div>
+  <!-- Mobile Hamburger Menu Icon -->
+  <div class="flex items-center md:hidden">
+    <button class="outline-none mobile-menu-button">
+      <svg
+        class="w-6 h-6 text-grey-500"
+        x-show="!showMenu"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="hidden mobile-menu">
+    <ul class="">
+      <li class="active"><a></a></li>
+      <li><a>Home</a></li>
+      <li><a>Projects</a></li>
+      <li><a>Contact Me</a></li>
+    </ul>
+  </div>
+</div>

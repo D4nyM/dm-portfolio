@@ -87,6 +87,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .card:hover > .card-content {
     background-position: -10% 0%;
+    transition-property: color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 550ms;
+    color:white;
+}
+
+.card:hover > .card-content > .contactAndIcons > .icons {
+    transition-property: fill;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    fill:white;
+    cursor: pointer;
+}
+
+.card:hover > .card-content > .contactAndIcons > .contactButton {
+    transition-property: color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 550ms;
+    color:black;
+    background-color: white;
+    cursor: pointer;
 }
 
 .card:before {

@@ -7,8 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule} from '@angular/material/icon'; 
 
 
 @NgModule({
@@ -21,8 +19,6 @@ import { MatIconModule} from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
