@@ -1,0 +1,72 @@
+---
+import { info } from "@data";
+
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/home/Hero.astro";
+import Experience from "@components/home/Experience.astro";
+import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
+import MetaHead from "@components/general/MetaHead.astro";
+import Skills from "@components/home/Skills.astro";
+
+const featureProjects = info.projects.reduce((accumulator, project) => {
+  if (accumulator.length < 6 && project.isFeatured) {
+    accumulator.push(project);
+  }
+  return accumulator;
+}, []);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Portfolio"}
+      description={info.about}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body>
+    <Layout>
+
+      <div class="flex flex-col gap-4 md:flex-row container">
+        <Hero name={info.name} about={info.about} />
+        <img 
+          class="hero-img"
+          alt="Daniel's face with rocks in background"
+          width="480"
+          height="620"
+          src="/assets/images/face.jpg"
+        />
+      </div>
+
+      <!-- Not using yet -->
+      <!-- <Experience title={"EXPERIENCE"} details={info.experience} /> -->
+
+      <Experience title={"EDUCATION"} details={info.education} />
+      <Skills title={"SKILLS"} details={info.skill} />
+      <section>
+        <h2 class="w-[15rem] dark:text-light mt-16">FEATURE PROJECTS</h2>
+        <ProjectsWrapper projects={featureProjects} />
+      </section>
+    </Layout>
+  </body>
+</html>
+
+<style>
+.hero-img {
+  aspect-ratio: 4 / 4;
+  object-fit: cover;
+  object-position: bottom-left;
+  border-radius: 1rem;
+  box-shadow:var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+    .hero-img {
+        aspect-ratio: 5/4;
+        object-fit: cover;
+        object-position: bottom-left;
+    }
+}
+</style>
