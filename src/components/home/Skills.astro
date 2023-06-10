@@ -1,0 +1,64 @@
+---
+import { ISkills } from "@types";
+const {title, details} = Astro.props as ISkills;
+---
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+<section class="flex items-start justify-between flex-col sm:flex-row dark:text-light">
+    <h2 class="w-[15rem] mt-16">{title}</h2>
+    <div class="w-full my-16 grid md:grid-cols-2 md:grid-rows-4 grid-cols-1 grid-rows-1">
+        {
+            details.slice(0, details.length/2).map((item) => (
+                <div class="flex p-4 bg-[var(--midnight-green-2)] z-10 dark:bg-[var(--tomato)] m-2 justify-between rounded-lg">
+                    <h3 class="text-xl font-semibold">{item.name}</h3>
+                    <Fragment set:html={item.logo} />
+                </div>
+            ))
+        }
+        <button class="md:hidden text-slate-500 show-more">Show more...</button>
+        {
+            details.slice(details.length/2).map((item) => (
+                <div id="extra-skills" class="slide-animation flex z-1 p-4 m-2 bg-[var(--midnight-green-2)] dark:bg-[var(--tomato)] justify-between my-hidden rounded-lg">
+                    <h3 class="text-xl font-semibold">{item.name}</h3>
+                    <Fragment set:html={item.logo} />
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<script>
+    const showMore = document.querySelector(".show-more");
+    const extra = document.querySelectorAll("#extra-skills");
+    showMore.addEventListener('click', () => {
+        extra.forEach((item) => {
+            item.classList.toggle('my-hidden');
+            showMore.classList.add('hidden');
+        });
+    });
+</script>
+
+<style>
+    @media (max-width: 768px) {
+        .my-hidden {
+            display: none;
+        }
+
+        .slide-animation {
+            transform: translateY(-12rem);
+            animation-name: slide-down;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            animation-duration: 550ms;
+        }
+        @keyframes slide-down {
+            from {
+                transform: translateY(-12rem);
+            }
+            to {
+                transform: translateY(0px);
+            }
+        }
+
+    }
+</style>
