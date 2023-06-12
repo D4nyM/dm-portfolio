@@ -80,6 +80,11 @@ export const info = {
       thumbnail: "/assets/images/astro-portfolio.png",
       githubUrl: "https://github.com/D4nyM/dm-portfolio",
       liveUrl: "https://dm-portfolio-tau.vercel.app/home",
+      page: {
+        slug: "astro-portfolio",
+        title: "My Astro Portfolio",
+        text: "Sample text ........ ",
+      },
     },
   ],
 };

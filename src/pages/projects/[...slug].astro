@@ -1,0 +1,41 @@
+---
+import { info } from "../../data/info";
+import MetaHead from "@components/general/MetaHead.astro";
+import Layout from "@layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const myPages = info.projects.map(({page}) => {
+        return {
+            slug: page.slug,
+            title: page.title,
+            text: page.text,
+        }
+    });
+
+    return myPages.map(({slug, title, text}) => {
+        return {
+            params: {slug},
+            props: {title, text},
+        };
+    });
+}
+
+const {title, text} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Contact Me"}
+      description={"All my contact info is here."}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body>
+    <Layout>
+      <h1 class="text-6xl dark:text-light text-dark">{title}</h1>
+    </Layout>
+  </body>
+</html>

@@ -30,12 +30,18 @@ export interface ISkills {
   details: ISkill[];
 }
 
+export interface IPage {
+  slug: string,
+  title: string, 
+  text: string,
+}
 export interface IProject {
   title: string;
   isFeatured: boolean;
   thumbnail: string;
   githubUrl: string;
   liveUrl: string;
+  page: IPage;
 }
 export interface IProjects {
   projects: IProject[];
