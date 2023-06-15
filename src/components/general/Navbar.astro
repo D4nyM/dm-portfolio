@@ -85,9 +85,10 @@ import { createLogo } from "@utils";
     } else {
       // Check if user has reached top, don't hide the navbar
       if (currentScrollPos == 0){
+      header.style.top = '0';
         return;
       }
-      header.style.top = `-80px`;
+      header.style.top = `0`;
     }
     prevScrollPos = currentScrollPos;
   });
@@ -98,12 +99,12 @@ import { createLogo } from "@utils";
   links.forEach(link => {
     link.addEventListener('touchstart', function() {
       this.classList.add('hover');
-    });
+    }, {passive: true});
   });
   links.forEach(link => {
     link.addEventListener('touchend', function() {
       this.classList.remove('hover');
-    });
+    }, {passive: true});
   });
   
 </script>
