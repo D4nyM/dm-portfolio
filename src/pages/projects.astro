@@ -20,7 +20,12 @@ const Projects = info.projects.map((project) => project);
 
   <body>
     <Layout>
-    <h1 class="text-6xl dark:text-light text-dark">Projects</h1>
+      <div class="flex flex-col gap-4 container items-center">
+        <h1 class="text-6xl sm:text-8xl dark:text-light text-dark mt-[117px] md:mt-0">Projects</h1>
+        <p class="mb-16 text-lg dark:text-light text-dark">
+          A look at some of my projects: 
+        </p>
+      </div>
       <ProjectsWrapper projects={Projects} />
     </Layout>
   </body>

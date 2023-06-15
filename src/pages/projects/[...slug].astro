@@ -4,38 +4,50 @@ import MetaHead from "@components/general/MetaHead.astro";
 import Layout from "@layouts/Layout.astro";
 
 export async function getStaticPaths() {
-    const myPages = info.projects.map(({page}) => {
+    return info.projects.map((project) => {
+        const {thumbnail, page} = project;
         return {
-            slug: page.slug,
-            title: page.title,
-            text: page.text,
+            params: {slug: page.slug},
+            props:{
+                title: page.title,
+                text: page.text,
+                thumbnail: thumbnail,
+                tags: page.tags,
+                description: page.description
+            }
         }
     });
 
-    return myPages.map(({slug, title, text}) => {
-        return {
-            params: {slug},
-            props: {title, text},
-        };
-    });
 }
 
-const {title, text} = Astro.props;
+const {title, text, thumbnail, tags, description} = Astro.props;
 ---
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <MetaHead
-      title={"Contact Me"}
-      description={"All my contact info is here."}
-      ogImageUrl={"/assets/images/profile.png"}
+        title={title}
+        description={"All my contact info is here."}
+        ogImageUrl={"/assets/images/profile.png"}
     />
-  </head>
+</head>
 
-  <body>
+<body>
     <Layout>
-      <h1 class="text-6xl dark:text-light text-dark">{title}</h1>
+        <a class="dark:text-slate-400 text-dark text-xl" href="/projects"><iconify-icon icon="icon-park-solid:back"></iconify-icon>Projects</a>
+        <div class="flex flex-col items-center">
+            <h1 class="text-6xl dark:text-light text-dark">{title}</h1>
+            <div class="flex justify-center">
+                {tags.map((t) => <p class="dark:text-light text-dark rounded-3xl p-4 bg-[var(--midnight-green)] dark:bg-[var(--tomato)] m-4">{t}</p>)}
+            </div>
+            <h4 class="dark:text-light text-dark">{text}</h4>
+        </div>
+        <hr class="dark:text-light text-dark m-4">
+        <Fragment set:html={thumbnail}/ class:list="w-full h-auto scale-100" client:load="lazy">
+        <p class="dark:text-light text-dark">{description}</p>
     </Layout>
-  </body>
+</body>
 </html>

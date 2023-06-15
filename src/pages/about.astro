@@ -1,21 +1,57 @@
 ---
+import {info} from "@data";
 import MetaHead from "@components/general/MetaHead.astro";
 import Layout from "@layouts/Layout.astro";
+import Experience from "@components/home/Experience.astro";
+import Skills from "@components/home/Skills.astro";
+import Hero from "@components/home/Hero.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <MetaHead
-      title={"Contact Me"}
-      description={"All my contact info is here."}
+      title={"About Me"}
+      description={"Information about myself"}
       ogImageUrl={"/assets/images/profile.png"}
     />
   </head>
 
   <body>
     <Layout>
-      <h1 style="line-height: 1.2;">ABOUT ME</h1>
+      <div class="flex flex-col gap-4 container items-center">
+        <h1 class="text-6xl sm:text-8xl dark:text-light text-dark mt-[117px] md:mt-0">About Me</h1>
+        <p class="mb-16 text-lg dark:text-light text-dark">
+          Thank you for visiting my portfolio!
+        </p>
+      </div>
+      <div class="flex my-16 flex-col md:flex-row">
+        
+        <img
+        sizes="(min-width: 560px) 480px, 88.33vw"
+        width="480"
+        height="620"
+        srcset="
+        ../../assets/images/danielyosemite_rsil0q_c_scale,w_200.jpg 200w,
+        ../../assets/images/danielyosemite_rsil0q_c_scale,w_680.jpg 680w,
+        ../../assets/images/danielyosemite_rsil0q_c_scale,w_950.jpg 950w,
+        ../../assets/images/danielyosemite_rsil0q_c_scale,w_1238.jpg 1238w,
+        ../../assets/images/danielyosemite_rsil0q_c_scale,w_1400.jpg 1400w"
+        src="../../assets/images/danielyosemite_rsil0q_c_scale,w_1400.jpg"
+        alt="Daniel with a waterfall in background in yosemite"
+        class="rounded-xl"
+        />
+        <p class="dark:text-light text-dark text-xl mx-4 my-4 md:my-0">
+          Hi! My name is Daniel Mendoza and I'm a software enginner looking for new growth opportunities. I would desccribe myself
+          as a hardworking guy with a passion for learning and growth. I'm always on the lookout for ways to achieve personal and professional
+          development.
+          
+          When I'm not busy pursing my interests, you can find me tinkering with my truck and speakers, two of my favorite hobbies. I also 
+          love listening to music, technology, and my dogs. Overall, I'm a well rounded individual who is always eager to learn and grow.
+        </p>
+      </div>
+      <Experience title={"EDUCATION"} details={info.education} />
+      <Skills title={"SKILLS"} details={info.skill} />
     </Layout>
   </body>
 </html>

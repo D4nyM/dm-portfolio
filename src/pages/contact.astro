@@ -16,7 +16,12 @@ import Layout from "@layouts/Layout.astro";
 
   <body>
     <Layout>
-      <h1 style="line-height: 1.2;">Contact Me</h1>
+      <div class="flex flex-col gap-4 container items-center">
+        <h1 class="text-6xl sm:text-8xl dark:text-light text-dark mt-[117px] md:mt-0">Contact Me</h1>
+        <p class="mb-16 text-lg dark:text-light text-dark">
+          Here are some ways to contact me!
+        </p>
+      </div>
       <ContactMe />
     </Layout>
   </body>

@@ -31,9 +31,12 @@ export interface ISkills {
 }
 
 export interface IPage {
-  slug: string,
-  title: string, 
-  text: string,
+  slug: string;
+  title: string;
+  tags: string[];
+  thumbnail: string;
+  text: string;
+  description: string;
 }
 export interface IProject {
   title: string;
