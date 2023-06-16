@@ -5,7 +5,7 @@ const { name, about } = Astro.props as IHeroProps;
 ---
 
 <section>
-  <p class="dark:text-light mt-[117px]">Hey, I’m</p>
+  <p class="dark:text-light md:mt-[117px] mt-4">Hey, I’m</p>
   <h1 class="text-6xl sm:text-8xl main-heading bg-gradient-to-r from-[var(--lavender-blush)] from-10% via-[var(--midnight-green)] dark:via-[var(--tomato)] via-30% to-[var(--dark-purple)] to-90%">{name}.</h1>
   <p class="mb-16 text-lg dark:text-light text-dark">
     {about}

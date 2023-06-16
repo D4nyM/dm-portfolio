@@ -4,12 +4,12 @@ const {title, details} = Astro.props as ISkills;
 ---
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-<section class="flex items-start justify-between flex-col sm:flex-row dark:text-light">
+<section class="flex items-start justify-between flex-col sm:flex-row dark:text-light z-1 relative">
     <h2 class="w-[15rem] mt-16">{title}</h2>
     <div class="w-full my-16 grid md:grid-cols-2 md:grid-rows-4 grid-cols-1 grid-rows-1">
         {
             details.slice(0, details.length/2).map((item) => (
-                <div class="flex p-4 bg-[var(--midnight-green-2)] z-10 dark:bg-[var(--tomato)] m-2 justify-between rounded-lg">
+                <div class="flex p-4 bg-[var(--midnight-green-2)] z-10 dark:bg-[var(--tomato)] m-2 justify-between rounded-lg z-1">
                     <h3 class="text-xl font-semibold">{item.name}</h3>
                     <Fragment set:html={item.logo} />
                 </div>

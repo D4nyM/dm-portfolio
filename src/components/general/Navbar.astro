@@ -3,7 +3,7 @@ import { info } from "@data";
 import { createLogo } from "@utils";
 ---
 
-<header class="container flex flex-col-reverse items-center fixed md:relative justify-center h-[80px] md:flex-row md:h-[123px] transition-[top] duration-550 bg-white dark:bg-dark">
+<header class="container flex flex-col-reverse items-center relative justify-center h-[80px] md:flex-row md:h-[123px] bg-white dark:bg-dark top-0">
   <div class="flex items-center justify-between w-4/5">
     <a class="text-2xl font-semibold dark:text-light dark:font-semibold font-outfit dark:hover:text-[var(--tomato)] hover:text-[var(--midnight-green)]" href="/">
       {createLogo(info.name)}.
@@ -65,47 +65,14 @@ import { createLogo } from "@utils";
     toggleNav();
   });
   
-  const themeButton = document.querySelector('.theme-button');
+  // const themeButton = document.querySelector('.theme-button');
   // If user clicks anywhere outside the menu when it is open, close it. 
   document.addEventListener('click', function(event) {
     if (!nav.parentNode.contains(event.target as Node) && nav.style.display === 'block') {
       toggleNav();
-      header.style.top = `-80px`;
     }
   });
 
-  // When user scrolls up, show header again. 
-  let prevScrollPos = window.scrollY;
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', function() {
-    let currentScrollPos = window.scrollY;
-    if (prevScrollPos > currentScrollPos) {
-      header.style.top = '0';
-      // header.classList.remove('hidden');
-    } else {
-      // Check if user has reached top, don't hide the navbar
-      if (currentScrollPos == 0){
-      header.style.top = '0';
-        return;
-      }
-      header.style.top = `0`;
-    }
-    prevScrollPos = currentScrollPos;
-  });
-
-  // mobile hover ? 
-  const links = document.querySelectorAll('a');
-  
-  links.forEach(link => {
-    link.addEventListener('touchstart', function() {
-      this.classList.add('hover');
-    }, {passive: true});
-  });
-  links.forEach(link => {
-    link.addEventListener('touchend', function() {
-      this.classList.remove('hover');
-    }, {passive: true});
-  });
   
 </script>
 
