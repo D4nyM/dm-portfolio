@@ -61,6 +61,7 @@ const { title, thumbnail, liveUrl, githubUrl, page } = projectDetail;
     </div>
     <a
     href=`/projects/${page.slug}`
+    aria-label="Read more about this project"
     >
       <Fragment set:html={thumbnail} class:list={"w-full h-auto scale-100 hover:scale-110 transition duration-[1.5s]"} client:load="lazy" alt="featureImage"/>
     </a>
