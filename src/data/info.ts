@@ -69,7 +69,7 @@ export const info = {
 
   socialMedia: {
     github: "https://github.com/D4nyM",
-    email: "dolphanoe@gmail.com",
+    email: "mailto: dolphanoe@gmail.com",
     linkedin: "https://www.linkedin.com/in/daniel-berreles-mendoza-449165194/",
   },
 
