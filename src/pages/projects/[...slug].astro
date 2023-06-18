@@ -5,49 +5,81 @@ import Layout from "@layouts/Layout.astro";
 
 export async function getStaticPaths() {
     return info.projects.map((project) => {
-        const {thumbnail, page} = project;
+        const { thumbnail, page } = project;
         return {
-            params: {slug: page.slug},
-            props:{
+            params: { slug: page.slug },
+            props: {
                 title: page.title,
                 text: page.text,
                 thumbnail: thumbnail,
                 tags: page.tags,
-                description: page.description
-            }
-        }
+                description: page.description,
+            },
+        };
     });
-
 }
 
-const {title, text, thumbnail, tags, description} = Astro.props;
+const { title, text, thumbnail, tags, description } = Astro.props;
 ---
 
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+></script>
 
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <MetaHead
-        title={title}
-        description={"All my contact info is here."}
-        ogImageUrl={"/assets/images/profile.png"}
-    />
-</head>
+    <head>
+        <MetaHead
+            title={title}
+            description={"All my contact info is here."}
+            ogImageUrl={"/assets/images/profile.png"}
+        />
+    </head>
 
-<body>
-    <Layout>
-        <a class="dark:text-slate-400 text-dark text-xl" href="/projects"><iconify-icon icon="icon-park-solid:back"></iconify-icon>Projects</a>
-        <div class="flex flex-col items-center">
-            <h1 class="text-6xl dark:text-light text-dark">{title}</h1>
-            <div class="flex justify-center">
-                {tags.map((t) => <p class="dark:text-light text-dark rounded-3xl p-4 bg-[var(--midnight-green)] dark:bg-[var(--tomato)] m-4">{t}</p>)}
+    <body>
+        <Layout>
+            <a
+                class="dark:text-[var(--tomato)] text-[var(--midnight-green)] text-xl"
+                href="/projects"
+            >
+                <iconify-icon icon="icon-park-solid:back"></iconify-icon>
+                Projects
+            </a>
+            <div class="flex flex-col items-center">
+                <h1 class="text-6xl dark:text-light text-dark mt-4 md:mt-0">
+                    {title}
+                </h1>
+                <div class="flex justify-center items-center flex-wrap m-4">
+                    <!-- TODO Fix size of tags on mobile -->
+                    {
+                        tags.map((t) => (
+                            <p class="text-dark bg-[var(--lavender-blush)] dark:bg-[var(--naples-yellow)] pill">
+                                {t}
+                            </p>
+                        ))
+                    }
+                </div>
+                <h4 class="dark:text-light text-dark">{text}</h4>
             </div>
-            <h4 class="dark:text-light text-dark">{text}</h4>
-        </div>
-        <hr class="dark:text-light text-dark m-4">
-        <Fragment set:html={thumbnail}/ class:list="w-full h-auto scale-100" client:load="lazy">
-        <p class="dark:text-light text-dark">{description}</p>
-    </Layout>
-</body>
+            <hr class="dark:text-light text-dark m-4" />
+            <Fragment
+                set:html={thumbnail}
+                class:list="w-full h-auto scale-100"
+                client:load="lazy"
+            />
+            <p class="dark:text-light text-dark mt-4">{description}</p>
+        </Layout>
+        <style>
+            .pill {
+                pointer-events: none;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                margin-right: 13px;
+                margin-left: -1px;
+                margin-bottom: 10px;
+                border-radius: 100px;
+            }
+        </style>
+    </body>
 </html>

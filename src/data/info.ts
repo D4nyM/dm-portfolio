@@ -91,7 +91,7 @@ export const info = {
         title: "My Astro Portfolio",
         tags: [
           "Astro",
-          "Static Web Page Design",
+          "Static Page",
           "TailwindCSS"
         ],
         text: "Sample text ........ ",
