@@ -60,12 +60,10 @@ const { title, text, thumbnail, tags, description } = Astro.props;
                 <h4 class="dark:text-light text-dark">{text}</h4>
             </div>
             <hr class="dark:text-light text-dark m-4" />
-            <Fragment
-                set:html={thumbnail}
-                class:list="w-full h-auto scale-100"
-                client:load="lazy"
-            />
-            <p class="dark:text-light text-dark mt-4">{description}</p>
+            <Fragment set:html={thumbnail} client:load="lazy" />
+            <p class="dark:text-light text-dark mt-4 text-justify">
+                {description}
+            </p>
         </Layout>
         <style>
             .pill {
