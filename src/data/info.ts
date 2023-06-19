@@ -107,6 +107,8 @@ export const info = {
       isFeatured: true,
       thumbnail: `<img src="../../assets/images/mri-image.webp" alt="" class="float-left md:m-4 h-auto md:w-[450px] w-full">`,
       githubUrl: "https://github.com/D4nyM/MedImgProject",
+      liveUrl:
+        "https://docs.google.com/document/d/e/2PACX-1vQJFgvnUKbL3EcdvwZtaECPWsU9lEv0aAq8_GSCUH388r4OzVpr-hI-YNcbTkKhsbKgiHDmH-K0aLEz/pub",
       page: {
         slug: "medical",
         title: "Medical Imaging ML",
